@@ -9,8 +9,8 @@ import jakarta.persistence.Table;
 import org.springframework.lang.NonNull;
 
     @Entity
-    @Table(name = "users")
-    public class User {
+    @Table
+    public class DCUser {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,10 +30,10 @@ import org.springframework.lang.NonNull;
         @NonNull
         private String email;
 
-        public User() {
+        public DCUser() {
         }
 
-        public User(int userID, String firstName, String lastName, String phoneNumber,
+        public DCUser(int userID, String firstName, String lastName, String phoneNumber,
                 @NonNull String email) {
             this.userID = userID;
             this.firstName = firstName;
@@ -42,7 +42,7 @@ import org.springframework.lang.NonNull;
             this.email = email;
         }
 
-        public User(String firstName, String lastName, String phoneNumber, @NonNull String email) {
+        public DCUser(String firstName, String lastName, String phoneNumber, @NonNull String email) {
             this.firstName = firstName;
             this.lastName = lastName;
             this.phoneNumber = phoneNumber;
@@ -92,7 +92,7 @@ import org.springframework.lang.NonNull;
 
         @Override
         public String toString() {
-            return "User{" +
+            return "DCUser{" +
                     "userID=" + userID +
                     ", firstName='" + firstName + '\'' +
                     ", lastName='" + lastName + '\'' +

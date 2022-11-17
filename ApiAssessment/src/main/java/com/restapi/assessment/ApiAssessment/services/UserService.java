@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.restapi.assessment.ApiAssessment.models.User;
+import com.restapi.assessment.ApiAssessment.models.DCUser;
 import com.restapi.assessment.ApiAssessment.repositories.IUserRepository;
 
 @Service
@@ -22,16 +22,16 @@ public class UserService {
 	}
 	
 		//@Transactional(readOnly = true)
-		public List<User> findAll() {
+		public List<DCUser> findAll() {
 			return userRepository.findAll();
 		}
 		
-		public Optional<User> findById(int userId) {
+		public Optional<DCUser> findById(int userId) {
 			
 			return userRepository.findById(userId);
 		}
 		
-		public User save(User user) {
+		public DCUser save(DCUser user) {
 			
 			return userRepository.save(user);
 		}

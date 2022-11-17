@@ -6,17 +6,17 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.restapi.assessment.ApiAssessment.models.User;
+import com.restapi.assessment.ApiAssessment.models.DCUser;
 
 @Repository
-public interface IUserRepository extends JpaRepository<User, Integer> {
+public interface IUserRepository extends JpaRepository<DCUser, Integer> {
 	
-	public List<User> findAll();
+	public List<DCUser> findAll();
 	
-	public Optional<User> findById(int userId);
+	public Optional<DCUser> findById(int userId);
 	
-	public User save(User user);
+	public DCUser save(DCUser user);
 	
-	public void deleteById(Long uId);
+	//public void deleteById(Long uId);
 
 }

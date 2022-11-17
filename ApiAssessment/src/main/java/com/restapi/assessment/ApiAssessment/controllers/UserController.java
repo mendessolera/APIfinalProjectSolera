@@ -1,6 +1,6 @@
 package com.restapi.assessment.ApiAssessment.controllers;
 
-import com.restapi.assessment.ApiAssessment.models.User;
+import com.restapi.assessment.ApiAssessment.models.DCUser;
 import com.restapi.assessment.ApiAssessment.services.UserService;
 import java.util.HashMap;
 import java.util.List;
@@ -23,13 +23,13 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/users")
-    public List<User> listOfUsers() {
+    public List<DCUser> listOfUsers() {
         return userService.findAll();
     }
 
     @GetMapping("/users/{userID}")
     public ResponseEntity<?> search(@PathVariable int userID) {
-        Optional <User> user = null;
+        Optional <DCUser> user = null;
         Map<String, Object> response = new HashMap<>();
 
         try {
@@ -42,7 +42,7 @@ public class UserController {
             response.put("MESSAGE", "userID: ".concat(String.valueOf((userID)).concat(" doesn't exist.")));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
     }
-        return new ResponseEntity<Optional<User>>(user, HttpStatus.OK);
+        return new ResponseEntity<Optional<DCUser>>(user, HttpStatus.OK);
 }
 
 
