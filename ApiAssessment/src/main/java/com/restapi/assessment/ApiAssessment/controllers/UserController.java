@@ -33,7 +33,7 @@ public class UserController {
 	}
 
 	@GetMapping("/users/{userID}")
-	public ResponseEntity<?> search(@PathVariable int userID) {
+	public ResponseEntity<?> searchSpecificUser(@PathVariable int userID) {
 		Optional<DCUser> user = null;
 		Map<String, Object> response = new HashMap<>();
 
@@ -65,7 +65,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/users/{userID}")
-	public ResponseEntity<?> delete(@PathVariable int userID) {
+	public ResponseEntity<?> deleteSpecificUser(@PathVariable int userID) {
 
 		Map<String, Object> response = new HashMap<>();
 
