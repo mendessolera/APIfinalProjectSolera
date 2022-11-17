@@ -17,6 +17,6 @@ public interface IUserRepository extends JpaRepository<DCUser, Integer> {
 	
 	public DCUser save(DCUser user);
 	
-	//public void deleteById(Long uId);
+	public void deleteById(int userId);
 
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,11 +40,28 @@ public class UserController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         if (user.isPresent() == false){
-            response.put("MESSAGE", "userID: ".concat(String.valueOf((userID)).concat(" doesn't exist.")));
+            response.put("MESSAGE", "userID: ".concat(String.valueOf((userID)).concat(" DOESN'T EXIST.")));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
     }
         return new ResponseEntity<Optional<DCUser>>(user, HttpStatus.OK);
 }
+    
+    @DeleteMapping("/users/{userID}")
+	public ResponseEntity<?> delete(@PathVariable int userID) {
+
+		Map<String, Object> response = new HashMap<>();
+
+		try {
+			userService.delete(userID);
+		} catch (DataAccessException e) {
+			response.put("ERROR", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		response.put("MESSAGE","User: ".concat(String.valueOf((userID)).concat(" ELIMINATED WITH SUCCESS.")));
+
+		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+	}
 
 
 }
