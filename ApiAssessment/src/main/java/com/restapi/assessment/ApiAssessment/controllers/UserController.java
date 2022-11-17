@@ -54,6 +54,7 @@ public class UserController {
 	}
 
 	@PostMapping("/users")
+	@CrossOrigin(origins = "*")
 	public ResponseEntity<?> addNewDCUser(@Validated @RequestBody DCUser dcUser) {
 		Map<String, Object> response = new HashMap<>();
 		try {
