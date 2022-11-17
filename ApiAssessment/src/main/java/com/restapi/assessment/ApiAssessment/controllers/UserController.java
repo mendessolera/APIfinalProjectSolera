@@ -53,13 +53,13 @@ public class UserController {
 
 	@PostMapping("/users")
 	public ResponseEntity<?> addNewDCUser(@Validated @RequestBody DCUser dcUser) {
-		DCUser usernew = null;
 		Map<String, Object> response = new HashMap<>();
 		try {
-			usernew = userService.save(dcUser);
+			userService.save(dcUser);
+			response.put("MESSAGE", "USER SUCCESSFULLY CREATED");
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 		} catch (DataAccessException e) {
-			response.put("ERROR", "User Already Exists");
+			response.put("ERROR", "USER WITH THAT EMAIL ALREADY EXISTS");
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
