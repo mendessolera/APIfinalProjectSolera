@@ -1,1 +1,2 @@
-# APIfinalProjectSolera
+# Daniel Mendes
+# Cristian Mihai Sandu
