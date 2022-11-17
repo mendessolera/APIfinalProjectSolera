@@ -89,5 +89,16 @@ import org.springframework.lang.NonNull;
         public void setEmail(@NonNull String email) {
             this.email = email;
         }
+
+        @Override
+        public String toString() {
+            return "User{" +
+                    "userID=" + userID +
+                    ", firstName='" + firstName + '\'' +
+                    ", lastName='" + lastName + '\'' +
+                    ", phoneNumber='" + phoneNumber + '\'' +
+                    ", email='" + email + '\'' +
+                    '}';
+        }
     }
 
