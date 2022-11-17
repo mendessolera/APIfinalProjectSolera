@@ -1,9 +1,15 @@
 import './App.css';
-import PostPage from './Components/PostPage';
+import PostPage from './components/PostPage';
+import GetUsers from './components/GetUsers';
 
 function App() {
-  return (
-    <PostPage></PostPage>
+  return (<>
+
+    
+    <div><GetUsers></GetUsers></div>
+    <div> <PostPage></PostPage></div>
+
+  </>
   );
 }
 

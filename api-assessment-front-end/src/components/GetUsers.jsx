@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 
-import './getusers.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -32,7 +31,6 @@ function GetUsers() {
                         <th>Last Name</th>
                         <th>Phone Number</th>
                         <th>Email</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +41,6 @@ function GetUsers() {
                             <td>{users.lastName}</td>
                             <td>{users.phoneNumber}</td>
                             <td>{users.email}</td>
-                            <td><button type="button" class="btn btn-danger">DELETE</button></td>
                         </tr>
                     )}
                 </tbody>
